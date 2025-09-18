@@ -1,16 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>grypr</title>
   <style>
-    body { background: #111; color: #0f0; font-family: monospace; text-align: center; padding-top: 100px; }
-    input[type="text"] { width: 400px; padding: 10px; font-size: 18px; }
+    body {
+      background-color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 15%;
+    }
+    img.logo {
+      width: 272px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+    input[type="text"] {
+      width: 500px;
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #dcdcdc;
+      border-radius: 24px;
+      outline: none;
+    }
+    input[type="submit"] {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 14px;
+      border: none;
+      background-color: #f8f9fa;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #e8e8e8;
+    }
   </style>
 </head>
 <body>
-  <h1>grypr</h1>
-  <script async src="https://cse.google.com/cse.js?cx=1159959a214584d9c">
-</script>
-<div class="gcse-search"></div>
+  <!-- Replace this with your own logo image -->
+  <img src="src/grypr.png" alt="grypr" class="logo">
+
+  <form action="https://www.google.com/search" method="get">
+    <input type="text" name="q" placeholder="grypr">
+    <br>
+    <input type="submit" value="Search">
+  </form>
 </body>
 </html>
