@@ -6,77 +6,102 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     :root {
-      --bg-color: #fff;
-      --text-color: #000;
-      --input-bg: #fff;
-      --input-border: #dcdcdc;
-      --button-bg: #f8f9fa;
-      --button-hover: #e8e8e8;
+      --bg: #121212;
+      --text: #f5f5f5;
+      --accent: #00ff99;
+      --input-border: #444;
+      --button-border: #00ff99;
     }
 
     body {
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      font-family: Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', sans-serif;
       text-align: center;
-      margin-top: 8%;
-      padding: 0 20px;
-      transition: background-color 0.3s, color 0.3s;
+      margin: 0;
+      padding: 60px 20px;
     }
 
     #toggle {
-      position: absolute;
+      position: fixed;
       top: 20px;
       right: 20px;
       background: none;
       border: none;
       font-size: 28px;
       cursor: pointer;
-      color: var(--text-color);
+      color: var(--text);
     }
 
     img.logo {
-      width: 360px;
+      width: 280px;
       max-width: 80%;
       height: auto;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
     }
 
-    input.gsc-input {
-      font-size: 20px !important;
-      padding: 16px !important;
-      border-radius: 32px !important;
-      background-color: var(--input-bg) !important;
-      color: var(--text-color) !important;
-      border: 1px solid var(--input-border) !important;
+    form.search-form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    input.gsc-search-button {
-      padding: 12px 28px !important;
-      font-size: 16px !important;
-      background-color: var(--button-bg) !important;
-      border-radius: 6px !important;
-      color: var(--text-color) !important;
-      border: none !important;
+    input[type="text"] {
+      width: 100%;
+      font-size: 18px;
+      padding: 10px 14px;
+      border: none;
+      border-bottom: 1px solid var(--input-border);
+      background: transparent;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    input[type="text"]:focus {
+      border-bottom: 1px solid var(--accent);
+    }
+
+    input[type="submit"] {
+      margin-top: 16px;
+      font-size: 15px;
+      padding: 8px 20px;
+      background-color: transparent;
+      color: var(--accent);
+      border: 1px solid var(--button-border);
+      border-radius: 4px;
       cursor: pointer;
+      transition: background-color 0.2s ease, color 0.2s ease;
     }
 
-    input.gsc-search-button:hover {
-      background-color: var(--button-hover) !important;
+    input[type="submit"]:hover {
+      background-color: var(--accent);
+      color: #121212;
     }
 
-    .dark {
-      --bg-color: #121212;
-      --text-color: #f5f5f5;
-      --input-bg: #1e1e1e;
-      --input-border: #444;
-      --button-bg: #333;
-      --button-hover: #444;
+    .light {
+      --bg: #ffffff;
+      --text: #000000;
+      --accent: #0077cc;
+      --input-border: #ccc;
+      --button-border: #0077cc;
     }
 
     @media (max-width: 480px) {
-      body {
-        margin-top: 20%;
+      img.logo {
+        width: 200px;
+      }
+
+      input[type="text"] {
+        font-size: 16px;
+        padding: 8px 12px;
+      }
+
+      input[type="submit"] {
+        font-size: 14px;
+        padding: 6px 16px;
       }
 
       #toggle {
@@ -84,32 +109,24 @@
         top: 16px;
         right: 16px;
       }
-
-      input.gsc-input {
-        font-size: 17px !important;
-        padding: 12px 18px !important;
-      }
-
-      input.gsc-search-button {
-        font-size: 15px !important;
-        padding: 10px 24px !important;
-      }
     }
   </style>
 </head>
 <body>
-  <button id="toggle" title="Toggle dark mode">🐸</button>
+  <button id="toggle" title="Toggle light mode">🐸</button>
 
   <img src="grypr.png" alt="grypr" class="logo">
 
-  <!-- Programmable Search Engine embed -->
-  <div class="gcse-search"></div>
+  <form class="search-form" action="https://cse.google.com/cse" method="get">
+    <input type="hidden" name="cx" value="1159959a214584d9c">
+    <input type="text" name="q" placeholder="Search grypr">
+    <input type="submit" value="Search">
+  </form>
 
-  <script async src="https://cse.google.com/cse.js?cx=1159959a214584d9c"></script>
   <script>
     const toggle = document.getElementById('toggle');
     toggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark');
+      document.body.classList.toggle('light');
     });
   </script>
 </body>
