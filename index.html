@@ -19,44 +19,9 @@
       color: var(--text-color);
       font-family: Arial, sans-serif;
       text-align: center;
-      margin-top: 12%;
+      margin-top: 8%;
       padding: 0 20px;
       transition: background-color 0.3s, color 0.3s;
-    }
-
-    img.logo {
-      width: 360px;
-      max-width: 80%;
-      height: auto;
-      margin-bottom: 30px;
-    }
-
-    input[type="text"] {
-      width: 100%;
-      max-width: 600px;
-      padding: 16px 24px;
-      font-size: 20px;
-      border: 1px solid var(--input-border);
-      border-radius: 32px;
-      outline: none;
-      background-color: var(--input-bg);
-      box-shadow: 0 1px 6px rgba(32,33,36,0.28);
-      color: var(--text-color);
-    }
-
-    input[type="submit"] {
-      margin-top: 24px;
-      padding: 12px 28px;
-      font-size: 16px;
-      border: none;
-      background-color: var(--button-bg);
-      border-radius: 6px;
-      cursor: pointer;
-      color: var(--text-color);
-    }
-
-    input[type="submit"]:hover {
-      background-color: var(--button-hover);
     }
 
     #toggle {
@@ -68,6 +33,36 @@
       font-size: 28px;
       cursor: pointer;
       color: var(--text-color);
+    }
+
+    img.logo {
+      width: 360px;
+      max-width: 80%;
+      height: auto;
+      margin-bottom: 30px;
+    }
+
+    input.gsc-input {
+      font-size: 20px !important;
+      padding: 16px !important;
+      border-radius: 32px !important;
+      background-color: var(--input-bg) !important;
+      color: var(--text-color) !important;
+      border: 1px solid var(--input-border) !important;
+    }
+
+    input.gsc-search-button {
+      padding: 12px 28px !important;
+      font-size: 16px !important;
+      background-color: var(--button-bg) !important;
+      border-radius: 6px !important;
+      color: var(--text-color) !important;
+      border: none !important;
+      cursor: pointer;
+    }
+
+    input.gsc-search-button:hover {
+      background-color: var(--button-hover) !important;
     }
 
     .dark {
@@ -84,21 +79,20 @@
         margin-top: 20%;
       }
 
-      input[type="text"] {
-        font-size: 17px;
-        padding: 12px 18px;
-        max-width: 90vw;
-      }
-
-      input[type="submit"] {
-        font-size: 15px;
-        padding: 10px 24px;
-      }
-
       #toggle {
         font-size: 24px;
         top: 16px;
         right: 16px;
+      }
+
+      input.gsc-input {
+        font-size: 17px !important;
+        padding: 12px 18px !important;
+      }
+
+      input.gsc-search-button {
+        font-size: 15px !important;
+        padding: 10px 24px !important;
       }
     }
   </style>
@@ -108,12 +102,10 @@
 
   <img src="grypr.png" alt="grypr" class="logo">
 
-  <form action="https://www.google.com/search" method="get">
-    <input type="text" name="q" placeholder="Search grypr">
-    <br>
-    <input type="submit" value="Search">
-  </form>
+  <!-- Programmable Search Engine embed -->
+  <div class="gcse-search"></div>
 
+  <script async src="https://cse.google.com/cse.js?cx=1159959a214584d9c"></script>
   <script>
     const toggle = document.getElementById('toggle');
     toggle.addEventListener('click', () => {
@@ -122,3 +114,4 @@
   </script>
 </body>
 </html>
+
