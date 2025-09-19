@@ -5,12 +5,23 @@
   <title>grypr</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    :root {
+      --bg-color: #fff;
+      --text-color: #000;
+      --input-bg: #fff;
+      --input-border: #dcdcdc;
+      --button-bg: #f8f9fa;
+      --button-hover: #e8e8e8;
+    }
+
     body {
-      background-color: #fff;
+      background-color: var(--bg-color);
+      color: var(--text-color);
       font-family: Arial, sans-serif;
       text-align: center;
       margin-top: 12%;
       padding: 0 20px;
+      transition: background-color 0.3s, color 0.3s;
     }
 
     img.logo {
@@ -25,10 +36,12 @@
       max-width: 600px;
       padding: 16px 24px;
       font-size: 20px;
-      border: 1px solid #dcdcdc;
+      border: 1px solid var(--input-border);
       border-radius: 32px;
       outline: none;
+      background-color: var(--input-bg);
       box-shadow: 0 1px 6px rgba(32,33,36,0.28);
+      color: var(--text-color);
     }
 
     input[type="submit"] {
@@ -36,13 +49,34 @@
       padding: 12px 28px;
       font-size: 16px;
       border: none;
-      background-color: #f8f9fa;
+      background-color: var(--button-bg);
       border-radius: 6px;
       cursor: pointer;
+      color: var(--text-color);
     }
 
     input[type="submit"]:hover {
-      background-color: #e8e8e8;
+      background-color: var(--button-hover);
+    }
+
+    #toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: var(--text-color);
+    }
+
+    .dark {
+      --bg-color: #121212;
+      --text-color: #f5f5f5;
+      --input-bg: #1e1e1e;
+      --input-border: #444;
+      --button-bg: #333;
+      --button-hover: #444;
     }
 
     @media (max-width: 480px) {
@@ -63,6 +97,8 @@
   </style>
 </head>
 <body>
+  <button id="toggle" title="Toggle dark mode">🐸</button>
+
   <img src="grypr.png" alt="grypr" class="logo">
 
   <form action="https://www.google.com/search" method="get">
@@ -70,8 +106,12 @@
     <br>
     <input type="submit" value="Search">
   </form>
+
+  <script>
+    const toggle = document.getElementById('toggle');
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+    });
+  </script>
 </body>
 </html>
-
-
-
